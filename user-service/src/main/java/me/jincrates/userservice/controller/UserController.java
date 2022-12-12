@@ -4,12 +4,16 @@ import lombok.RequiredArgsConstructor;
 import me.jincrates.userservice.controller.request.RequestUser;
 import me.jincrates.userservice.controller.response.ResponseUser;
 import me.jincrates.userservice.dto.UserDto;
+import me.jincrates.userservice.jpa.UserEntity;
 import me.jincrates.userservice.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user-service")
@@ -43,4 +47,23 @@ public class UserController {
                 .body(responseUser);
     }
 
+    @GetMapping("/users")
+    public ResponseEntity<List<ResponseUser>> getUsers() {
+        Iterable<UserEntity> users = userService.getUserByAll();
+
+        List<ResponseUser> result = new ArrayList<>();
+        users.forEach(u -> {
+            result.add(modelMapper.map(u, ResponseUser.class));
+        });
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<ResponseUser> getUser(@PathVariable("userId") String userId) {
+        UserDto userDto = userService.getUserByUserId(userId);
+        ResponseUser responseUser = modelMapper.map(userDto, ResponseUser.class);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseUser);
+    }
 }
