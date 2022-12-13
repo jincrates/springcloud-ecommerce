@@ -10,7 +10,7 @@ eureka:
 
 spring:
   application:
-    name: api-gateway-service
+    name: gateway-service
   cloud:
     gateway:
       default-filters:
