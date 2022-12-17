@@ -24,7 +24,7 @@ public class UserController {
     private final ModelMapper modelMapper;
     private final UserService userService;
 
-    @GetMapping("/heath-check")
+    @GetMapping("/heath")
     public String status() {
         return String.format("It's Working in User Service on PORT %s",
                 env.getProperty("local.server.port"));
