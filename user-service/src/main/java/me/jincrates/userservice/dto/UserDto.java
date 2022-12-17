@@ -4,6 +4,7 @@ import lombok.Data;
 import me.jincrates.userservice.controller.response.ResponseOrder;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -12,7 +13,7 @@ public class UserDto {
     private String name;
     private String pwd;
     private String userId;
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
     private String encryptedPwd;
 
