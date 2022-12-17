@@ -31,10 +31,11 @@ POST {{host}}/order-service/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5/orders
 Content-Type: application/json
 
 {
-  "productId": "CATALOG-0002",
+  "productId": "CATALOG-0001",
   "qty": 10,
-  "unitPrice": 1000
+  "unitPrice": 1500
 }
 
 ### 주문 조회
 GET {{host}}/order-service/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5/orders
+
