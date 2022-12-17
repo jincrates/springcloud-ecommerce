@@ -1,0 +1,40 @@
+### 유저 서비스 heath 조회
+GET {{host}}/user-service/heath
+
+### 카탈로그 서비스 heath 조회
+GET {{host}}/catalog-service/heath
+
+### 주문 서비스 heath 조회
+GET {{host}}/order-service/heath
+
+### 유저 등록
+POST {{host}}/user-service/users
+Content-Type: application/json
+
+{
+    "name": "진크2",
+    "email": "jincrates2@email.com",
+    "pwd": "12345678"
+}
+
+### 유저 전체 조회
+GET {{host}}/user-service/users
+
+### 유저 상세 조회
+GET {{host}}/user-service/users/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5
+
+### 카탈로그 전체 조회
+GET {{host}}/catalog-service/catalogs
+
+### 주문 등록
+POST {{host}}/order-service/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5/orders
+Content-Type: application/json
+
+{
+  "productId": "CATALOG-0002",
+  "qty": 10,
+  "unitPrice": 1000
+}
+
+### 주문 조회
+GET {{host}}/order-service/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5/orders
