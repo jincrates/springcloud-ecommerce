@@ -14,7 +14,7 @@ Content-Type: application/json
 {
     "name": "진크",
     "email": "jincrates@email.com",
-    "pwd": "12345678"
+    "password": "12345678"
 }
 
 ### 유저 전체 조회

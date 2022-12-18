@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException(username);
         }
 
-        return new User(userEntity.getEmail(), userEntity.getEncryptedPwd(),
+        return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(),
                 true, true, true, true,
                 new ArrayList<>());
     }
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
         userDto.setUserId(UUID.randomUUID().toString());
 
         UserEntity userEntity = modelMapper.map(userDto, UserEntity.class);
-        userEntity.setEncryptedPwd(passwordEncoder.encode(userDto.getPassword()));
+        userEntity.setEncryptedPassword(passwordEncoder.encode(userDto.getPassword()));
 
         userRepository.save(userEntity);
 
