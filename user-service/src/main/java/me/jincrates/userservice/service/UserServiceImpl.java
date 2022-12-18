@@ -6,7 +6,6 @@ import me.jincrates.userservice.dto.UserDto;
 import me.jincrates.userservice.jpa.UserEntity;
 import me.jincrates.userservice.jpa.UserRepository;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -43,7 +42,7 @@ public class UserServiceImpl implements UserService {
         userDto.setUserId(UUID.randomUUID().toString());
 
         UserEntity userEntity = modelMapper.map(userDto, UserEntity.class);
-        userEntity.setEncryptedPwd(passwordEncoder.encode(userDto.getPwd()));
+        userEntity.setEncryptedPwd(passwordEncoder.encode(userDto.getPassword()));
 
         userRepository.save(userEntity);
 
@@ -71,4 +70,14 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
+    @Override
+    public UserDto getUserDetailsByEmail(String email) {
+        UserEntity userEntity = userRepository.findByEmail(email);
+
+        if (userEntity == null) {
+            throw new UsernameNotFoundException(email);
+        }
+
+        return modelMapper.map(userEntity, UserDto.class);
+    }
 }

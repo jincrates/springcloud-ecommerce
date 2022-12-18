@@ -44,7 +44,7 @@ public class SecurityConfig {
     }
 
     private AuthenticationFilter getAuthenticationFilter() throws Exception {
-        AuthenticationFilter authenticationFilter = new AuthenticationFilter();
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter(env, userService);
         authenticationFilter.setAuthenticationManager(authenticationManager());
         return authenticationFilter;
     }

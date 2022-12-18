@@ -25,5 +25,9 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
 
+logging:
+  level:
+    me.jincrates.userservice: debug
+
 greeting:
   message: Welcome to the Spring Cloud E-Commerce.
