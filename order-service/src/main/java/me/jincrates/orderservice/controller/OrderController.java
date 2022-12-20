@@ -24,7 +24,7 @@ public class OrderController {
     private final ModelMapper modelMapper;
     private final OrderService orderService;
 
-    @GetMapping("/heath")
+    @GetMapping("/health")
     public String status() {
         return String.format("It's Working in Order Service on PORT %s",
                 env.getProperty("local.server.port"));
