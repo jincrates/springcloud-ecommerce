@@ -24,7 +24,7 @@ public class CatalogController {
     private final ModelMapper modelMapper;
     private final CatalogService catalogService;
 
-    @GetMapping("/heath")
+    @GetMapping("/health")
     public String status() {
         return String.format("It's Working in Catalog Service on PORT %s",
                 env.getProperty("local.server.port"));

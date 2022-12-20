@@ -1,24 +1,25 @@
 ### 유저 서비스 heath 조회
-GET {{host}}/user-service/heath
+GET {{host}}/user-service/health
 
 ### 카탈로그 서비스 heath 조회
-GET {{host}}/catalog-service/heath
+GET {{host}}/catalog-service/health
 
 ### 주문 서비스 heath 조회
-GET {{host}}/order-service/heath
+GET {{host}}/order-service/health
 
 ### 유저 등록
 POST {{host}}/user-service/users
 Content-Type: application/json
 
 {
-    "name": "진크2",
-    "email": "jincrates2@email.com",
-    "pwd": "12345678"
+    "name": "진크",
+    "email": "jincrates@email.com",
+    "password": "12345678"
 }
 
 ### 유저 전체 조회
 GET {{host}}/user-service/users
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzE1NDYzMjYsImV4cCI6MTY3MTYzMjcyNiwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.IWYXASmxaqkBvnHziFtYPu5Sl1HeOC_Rejf-P-4UZtYxn8QcQih5r3IogtQn_4agga7rAkYFMkYq0Wyx5fa0uw
 
 ### 유저 상세 조회
 GET {{host}}/user-service/users/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5
@@ -39,3 +40,11 @@ Content-Type: application/json
 ### 주문 조회
 GET {{host}}/order-service/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5/orders
 
+### 유저 로그인
+POST {{host}}/user-service/login
+Content-Type: application/json
+
+{
+  "email": "jincrates@email.com",
+  "password": "12345678"
+}

@@ -3,8 +3,6 @@ package me.jincrates.userservice.jpa;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.annotation.processing.Generated;
-
 @Data
 @Entity
 @Table(name = "users")
@@ -23,5 +21,5 @@ public class UserEntity {
     private String userId;
 
     @Column(nullable = false)
-    private String encryptedPwd;
+    private String encryptedPassword;
 }
