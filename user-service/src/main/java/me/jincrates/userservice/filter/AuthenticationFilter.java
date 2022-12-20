@@ -71,7 +71,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
         String token =  Jwts.builder()
                 //.setHeaderParam(Header.TYPE, Header.JWT_TYPE)
-                .setIssuer("test") // 토큰 발급자(iss)
+                .setIssuer("jincrates") // 토큰 발급자(iss)
                 .setIssuedAt(now) // 발급시간(iat)
                 .setExpiration(expiration) // 만료시간(exp)
                 .setSubject(username)  // 토큰 제목(subject)
