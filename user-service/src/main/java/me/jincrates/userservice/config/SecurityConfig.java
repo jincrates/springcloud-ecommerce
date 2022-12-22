@@ -28,12 +28,13 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable();
 
-        http.headers().frameOptions().disable();
-
         http.authorizeHttpRequests()
+                .requestMatchers("/actuator/**").permitAll()
                 .requestMatchers("/**").permitAll()
                 .and()
                 .addFilter(getAuthenticationFilter());
+
+        http.headers().frameOptions().disable();
 
         return http.build();
     }
