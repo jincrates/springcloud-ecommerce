@@ -54,3 +54,8 @@ GET {{host}}/actuator/health
 
 ### 유저 서비스
 GET {{host}}/user-service/actuator/health
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzE4NjIwNjksImV4cCI6MTY3MTk0ODQ2OSwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.SNSKRHkUobTS2bl3wWiqKRaaK724V9MldjsRWLTqCVpWI6EJAaUhsbqBhGOZOibj69Y6NrRC0W4r-pXXMODE5w
+
+### 유저 서비스
+POST {{host}}/user-service/actuator/busrefresh
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzE4NjIwNjksImV4cCI6MTY3MTk0ODQ2OSwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.SNSKRHkUobTS2bl3wWiqKRaaK724V9MldjsRWLTqCVpWI6EJAaUhsbqBhGOZOibj69Y6NrRC0W4r-pXXMODE5w

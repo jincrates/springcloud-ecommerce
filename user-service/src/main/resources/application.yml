@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: user-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
   h2:
     console:
       enabled: true
@@ -32,6 +37,13 @@ logging:
 greeting:
   message: Welcome to the Spring Cloud E-Commerce.
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, busrefresh
+
 #token:
 #  expire_time: 86400000
 #  secret: This is a very difficult secret key This is a very difficult secret key
+

@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.jincrates.userservice.controller.request.RequestLogin;
 import me.jincrates.userservice.dto.UserDto;
-import me.jincrates.userservice.jwt.JwtProvider;
 import me.jincrates.userservice.service.UserService;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,7 +19,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.security.Key;
@@ -66,7 +64,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         Date now = new Date();
         Date expiration = new Date(now.getTime() + Long.parseLong(env.getProperty("token.expire_time")));
 
-        byte[] keyBytes = Base64.getUrlEncoder().encode(env.getProperty("token.secret").getBytes());
+        String tokenKey = env.getProperty("token.secret");
+        byte[] keyBytes = Base64.getUrlEncoder().encode(tokenKey.getBytes());
         Key secretKey = Keys.hmacShaKeyFor(keyBytes);
 
         String token =  Jwts.builder()

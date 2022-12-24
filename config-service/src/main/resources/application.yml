@@ -4,6 +4,13 @@ server:
 spring:
   application:
     name: config-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  profiles:
+    active: native
   cloud:
     config:
       server:
@@ -17,3 +24,9 @@ spring:
           searchPaths:
             - 'env'
 #            - 'env/*'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh
