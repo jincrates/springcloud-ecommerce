@@ -48,3 +48,9 @@ Content-Type: application/json
   "email": "jincrates@email.com",
   "password": "12345678"
 }
+
+### 게이트웨이
+GET {{host}}/actuator/health
+
+### 유저 서비스
+GET {{host}}/user-service/actuator/health

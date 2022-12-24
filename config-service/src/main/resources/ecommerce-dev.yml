@@ -1,0 +1,3 @@
+token:
+  expire_time: 86400000
+  secret: Dev - This is a very difficult secret key This is a very difficult secret key

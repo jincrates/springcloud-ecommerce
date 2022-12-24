@@ -32,6 +32,6 @@ logging:
 greeting:
   message: Welcome to the Spring Cloud E-Commerce.
 
-jwt:
-  expire_time: 86400000
-  secret: This is a very difficult secret key This is a very difficult secret key
+#token:
+#  expire_time: 86400000
+#  secret: This is a very difficult secret key This is a very difficult secret key
