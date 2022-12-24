@@ -87,15 +87,11 @@ spring:
                 preLogger: true
                 postLogger: true
 
+token:
+  secret: This is a very difficult secret key This is a very difficult secret key
+
 management:
   endpoints:
     web:
       exposure:
         include: refresh, health, beans, httptrace
-  trace:
-    http:
-      enabled: true
-
-
-jwt:
-  secret: This is a very difficult secret key This is a very difficult secret key

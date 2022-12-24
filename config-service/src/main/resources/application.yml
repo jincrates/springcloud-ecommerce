@@ -7,4 +7,6 @@ spring:
     config:
       server:
         git:
-          uri:
+          uri: https://github.com/jincrates/springcloud-ecommerce/blob/master/config-service/src/main/resources
+#          username: [your username]
+#          password: [your password]

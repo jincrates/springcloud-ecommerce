@@ -64,9 +64,9 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         UserDto userDetails = userService.getUserDetailsByEmail(username);
 
         Date now = new Date();
-        Date expiration = new Date(now.getTime() + Long.parseLong(env.getProperty("jwt.expire_time")));
+        Date expiration = new Date(now.getTime() + Long.parseLong(env.getProperty("token.expire_time")));
 
-        byte[] keyBytes = Base64.getUrlEncoder().encode(env.getProperty("jwt.secret").getBytes());
+        byte[] keyBytes = Base64.getUrlEncoder().encode(env.getProperty("token.secret").getBytes());
         Key secretKey = Keys.hmacShaKeyFor(keyBytes);
 
         String token =  Jwts.builder()
