@@ -10,5 +10,7 @@ spring:
           uri: https://github.com/jincrates/springcloud-ecommerce
 #          username: [your username]
 #          password: [your password]
-          search-paths: env/**
-          default-label: master
+          default-label: develop
+          searchPaths:
+            - 'env'
+#            - 'env/*'
