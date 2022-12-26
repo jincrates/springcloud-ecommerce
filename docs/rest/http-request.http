@@ -58,17 +58,19 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2N
 
 ### 전체 config 파일 refresh
 POST {{host}}/user-service/actuator/busrefresh
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzE4NjIwNjksImV4cCI6MTY3MTk0ODQ2OSwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.SNSKRHkUobTS2bl3wWiqKRaaK724V9MldjsRWLTqCVpWI6EJAaUhsbqBhGOZOibj69Y6NrRC0W4r-pXXMODE5w
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzIwNjQyMjQsImV4cCI6MTY3MjE1MDYyNCwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.L4TfCre82Rsg-Oxo4kaJl4Cv1RcKg73X22y0_Qv01G5oZrrhLnkmAgJ6_aoVZevFdhm05TbmaEh5MLa7SbnzyA
 
 ### 암호화
-POST http://127.0.0.1:8888/encrypt
+POST {{config-server}}/encrypt
 Content-Type: 'text/plain'
 
 jincrates
 
 ### 복호화
-POST http://127.0.0.1:8888/decrypt
+POST {{config-server}}/decrypt
 Content-Type: 'text/plain'
 
 debcf1c46bd18614d34b5c291d789a480221c6adb23f41320af5e4f5383c9172
 
+### 유저 설정정보 확인
+GET {{config-server}}/user-service/default

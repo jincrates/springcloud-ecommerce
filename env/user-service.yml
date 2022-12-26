@@ -3,6 +3,7 @@ spring:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb
     username: sa
+    # '{cipher}'를 붙이지 않으면 문자 그대로 읽거나 복호화 처리를 하지 못한다.
     password: '{cipher}35be276ccc0869fbbfeb17aaf955836de1843f6f0754970d9af304a0154538e4'
 
 token:
