@@ -70,7 +70,8 @@ jincrates
 POST {{config-server}}/decrypt
 Content-Type: 'text/plain'
 
-debcf1c46bd18614d34b5c291d789a480221c6adb23f41320af5e4f5383c9172
+AQBCwNF1dQzLQry0Wy8cu7DQ8gVbZQLSVeYdblPSmtfssuVJHSSQmy8SnpMxjypnNPuSNbIH6AUOs37+5H8dfEJnQIjvshGjdGT5J6neLiLgJPAH/wf6yTW8ys935z0Ukp+W7ngcgZ9DulB+5C7Xu5IdHRiayy82SIHxv0WPoO1X56RpfVT466JXHVzfYWvUp9DwIx1KNwTxcHs5ThYVJncuWi03spX5teeLcQAvvNu8sxP67sLStSZWx5u9tiHrlCS+ANSdl7Lp/OhFO+jPLJ+Vz8ZsJnsBIHp2lqCkNEUlUUtV8VtGYDffIK8I7FCPqxw0GoMs/EjYQ3+crhDxtTjMRL0xbsQykqIYJwp5nlK8oTNKUUIeUsLBMqK1lCr48Ug=
+
 
 ### 유저 설정정보 확인
 GET {{config-server}}/user-service/default
