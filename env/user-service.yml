@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: '{cipher}35be276ccc0869fbbfeb17aaf955836de1843f6f0754970d9af304a0154538e4'
+
+token:
+  expire_time: 86400000
+  secret: UserService - This is a very difficult secret key This is a very difficult secret key
