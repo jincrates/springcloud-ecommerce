@@ -4,8 +4,8 @@ spring:
     url: jdbc:h2:mem:testdb
     username: sa
     # '{cipher}'를 붙이지 않으면 문자 그대로 읽거나 복호화 처리를 하지 못한다.
-    password: '{cipher}35be276ccc0869fbbfeb17aaf955836de1843f6f0754970d9af304a0154538e4'
-#    password: '{cipher}AQA5O99HCFSlDJtbAhLzyxAM13+W6aWidY1oVQ1o78wLol34boMNqXuthBUy49kfPKILpRpdQMgpIWZ+jluRDMevfx4ILpT+AuLOwAINTFM70ZoeGWdUBJFXrfEh39YBsNspxU1NO6SBRx2krDGLMTp6RUup1bplV6etVdvNTGgG/Mt+9ntfyuDVU4RoE8s99+4NYicu/qbJ8nsb+tt72vtsIzbQ2ciJ2MZY7I6mfiUYlrLjBK+P1+MgZPvOYU0xTVRmsEMXP6m7hJ5EHum6OpS3kQNWIQ6cPDAMsmzhMm7s4jlLBk4P+bFMmRZl2jdn3J/VyAthbhqSao1w8Qxmz+trMSGggmEOWu6BvI/SScwilzE2UsTfd2hy6GT/rmDjz0U='
+#    password: '{cipher}35be276ccc0869fbbfeb17aaf955836de1843f6f0754970d9af304a0154538e4'
+    password: '{cipher}AQCTUMPZLoKnvQURm3DJ6UoF3/6FC/tJslHcCpK67mhnHCkkP6BI2YBW/rYFSdunZ4FXUYJsIQdCUTudeSbK+GWsSVN+WzxElmKFR6B4BxB6Ce8aJ+1fWEuiz+29ZQ9GTOylwIB77bb17jP0mvyc1hv6cWOFesKaZfJGy8XtVfKzGyFJkh/s3ikLw930936OpKcC49bPMB2KBFBkATgCBJ3WrxHpkIInhsBrN3aXSdtSEFo/w8cHTrpk0GR4j3DXkWGVJfxkAfRIp4jHrXskzQtXZRYpJTPTLCJn9LnNyMwZ3IY9TqYqM+j5M2fpV8rcLZ+QUYbbqd3ST4PpzM0wkV2q24XxE80bzUIbY7kKSMjrsCZLYyfQWP8SacYTnceJ9YY='
 
 token:
   expire_time: 86400000
