@@ -28,7 +28,7 @@ GET {{host}}/user-service/users/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5
 GET {{host}}/catalog-service/catalogs
 
 ### 주문 등록
-POST {{host}}/order-service/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5/orders
+POST {{host}}/order-service/5ecb63e8-26b2-4359-867d-ff90edca74c3/orders
 Content-Type: application/json
 
 {
@@ -38,7 +38,7 @@ Content-Type: application/json
 }
 
 ### 주문 조회
-GET {{host}}/order-service/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5/orders
+GET {{host}}/order-service/ad9d5526-3f50-45cf-b7e4-fae3eefe07be/orders
 
 ### 유저 로그인
 POST {{host}}/user-service/login

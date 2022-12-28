@@ -92,8 +92,8 @@ spring:
                 preLogger: true
                 postLogger: true
 
-token:
-  secret: This is a very difficult secret key This is a very difficult secret key
+#token:
+#  secret: This is a very difficult secret key This is a very difficult secret key
 
 management:
   endpoints:
