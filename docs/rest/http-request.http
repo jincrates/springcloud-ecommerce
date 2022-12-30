@@ -22,13 +22,14 @@ GET {{host}}/user-service/users
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzE1NDYzMjYsImV4cCI6MTY3MTYzMjcyNiwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.IWYXASmxaqkBvnHziFtYPu5Sl1HeOC_Rejf-P-4UZtYxn8QcQih5r3IogtQn_4agga7rAkYFMkYq0Wyx5fa0uw
 
 ### 유저 상세 조회
-GET {{host}}/user-service/users/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5
+GET {{host}}/user-service/users/ed268b80-ef6a-4b7b-a650-731a40e6c05f
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzI0MTAzNzksImV4cCI6MTY3MjQ5Njc3OSwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.gmWoD2rm7nmlGQJRoTNjn4N2pUFX2bU4JndP5p4PrUjiUbqFiWQ8s55pvfxIsDhSpd4EyDww1hrx26sA0Pn9Yg
 
 ### 카탈로그 전체 조회
 GET {{host}}/catalog-service/catalogs
 
 ### 주문 등록
-POST {{host}}/order-service/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5/orders
+POST {{host}}/order-service/ed268b80-ef6a-4b7b-a650-731a40e6c05f/orders
 Content-Type: application/json
 
 {
@@ -38,7 +39,7 @@ Content-Type: application/json
 }
 
 ### 주문 조회
-GET {{host}}/order-service/b7c9d8ca-14e2-4cdf-88ae-2f94a5e0d0c5/orders
+GET {{host}}/order-service/ed268b80-ef6a-4b7b-a650-731a40e6c05f/orders
 
 ### 유저 로그인
 POST {{host}}/user-service/login
@@ -54,8 +55,25 @@ GET {{host}}/actuator/health
 
 ### 유저 서비스
 GET {{host}}/user-service/actuator/health
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzE4NjIwNjksImV4cCI6MTY3MTk0ODQ2OSwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.SNSKRHkUobTS2bl3wWiqKRaaK724V9MldjsRWLTqCVpWI6EJAaUhsbqBhGOZOibj69Y6NrRC0W4r-pXXMODE5w
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzIyNjc5MTUsImV4cCI6MTY3MjM1NDMxNSwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.464v7qTM8CRPgLZn_mroP5uHpUnceybyUE6GAiiVQOh_jEmcGHmdjoPU23hMvHUXBQW_yryuorlI2ehaToL93Q
 
-### 유저 서비스
+### 전체 config 파일 refresh
 POST {{host}}/user-service/actuator/busrefresh
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzE4NjIwNjksImV4cCI6MTY3MTk0ODQ2OSwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.SNSKRHkUobTS2bl3wWiqKRaaK724V9MldjsRWLTqCVpWI6EJAaUhsbqBhGOZOibj69Y6NrRC0W4r-pXXMODE5w
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzIwNjQyMjQsImV4cCI6MTY3MjE1MDYyNCwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.L4TfCre82Rsg-Oxo4kaJl4Cv1RcKg73X22y0_Qv01G5oZrrhLnkmAgJ6_aoVZevFdhm05TbmaEh5MLa7SbnzyA
+
+### 암호화
+POST {{config-server}}/encrypt
+Content-Type: 'text/plain'
+
+sa
+
+### 복호화
+POST {{config-server}}/decrypt
+Content-Type: 'text/plain'
+
+AQCTUMPZLoKnvQURm3DJ6UoF3/6FC/tJslHcCpK67mhnHCkkP6BI2YBW/rYFSdunZ4FXUYJsIQdCUTudeSbK+GWsSVN+WzxElmKFR6B4BxB6Ce8aJ+1fWEuiz+29ZQ9GTOylwIB77bb17jP0mvyc1hv6cWOFesKaZfJGy8XtVfKzGyFJkh/s3ikLw930936OpKcC49bPMB2KBFBkATgCBJ3WrxHpkIInhsBrN3aXSdtSEFo/w8cHTrpk0GR4j3DXkWGVJfxkAfRIp4jHrXskzQtXZRYpJTPTLCJn9LnNyMwZ3IY9TqYqM+j5M2fpV8rcLZ+QUYbbqd3ST4PpzM0wkV2q24XxE80bzUIbY7kKSMjrsCZLYyfQWP8SacYTnceJ9YY=
+
+
+
+### 유저 설정정보 확인
+GET {{config-server}}/user-service/default
