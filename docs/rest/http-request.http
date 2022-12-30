@@ -22,14 +22,14 @@ GET {{host}}/user-service/users
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzE1NDYzMjYsImV4cCI6MTY3MTYzMjcyNiwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.IWYXASmxaqkBvnHziFtYPu5Sl1HeOC_Rejf-P-4UZtYxn8QcQih5r3IogtQn_4agga7rAkYFMkYq0Wyx5fa0uw
 
 ### 유저 상세 조회
-GET {{host}}/user-service/users/16efa222-29c1-4448-9699-7f96bf86ab37
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzIyNjgzMTYsImV4cCI6MTY3MjM1NDcxNiwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.hp1BohqVJ2XsQyVxgKZl2AyWFpy2l0jLbJwdWJLvYF-ix2x1nlljIaxH4z1P3NGkZhUrP8Rcftk6yvLfD-Wf2g
+GET {{host}}/user-service/users/ed268b80-ef6a-4b7b-a650-731a40e6c05f
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzI0MTAzNzksImV4cCI6MTY3MjQ5Njc3OSwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.gmWoD2rm7nmlGQJRoTNjn4N2pUFX2bU4JndP5p4PrUjiUbqFiWQ8s55pvfxIsDhSpd4EyDww1hrx26sA0Pn9Yg
 
 ### 카탈로그 전체 조회
 GET {{host}}/catalog-service/catalogs
 
 ### 주문 등록
-POST {{host}}/order-service/16efa222-29c1-4448-9699-7f96bf86ab37/orders
+POST {{host}}/order-service/ed268b80-ef6a-4b7b-a650-731a40e6c05f/orders
 Content-Type: application/json
 
 {
@@ -39,7 +39,7 @@ Content-Type: application/json
 }
 
 ### 주문 조회
-GET {{host}}/order-service/16efa222-29c1-4448-9699-7f96bf86ab37/orders
+GET {{host}}/order-service/ed268b80-ef6a-4b7b-a650-731a40e6c05f/orders
 
 ### 유저 로그인
 POST {{host}}/user-service/login
