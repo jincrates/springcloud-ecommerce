@@ -9,7 +9,8 @@ spring:
 
 token:
   expire_time: 86400000
-  secret: UserService - This is a very difficult secret key This is a very difficult secret key
+  secret: Default - This is a very difficult secret key This is a very difficult secret key
+#  secret: UserService - This is a very difficult secret key This is a very difficult secret key
 
 order_service:
 #  url: http://127.0.0.1:8000/order-service/%s/orders
