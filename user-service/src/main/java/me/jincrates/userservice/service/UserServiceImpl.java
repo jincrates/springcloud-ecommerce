@@ -1,6 +1,7 @@
 package me.jincrates.userservice.service;
 
 import lombok.RequiredArgsConstructor;
+import me.jincrates.userservice.client.OrderServiceClient;
 import me.jincrates.userservice.controller.response.ResponseOrder;
 import me.jincrates.userservice.dto.UserDto;
 import me.jincrates.userservice.jpa.UserEntity;
@@ -28,8 +29,9 @@ public class UserServiceImpl implements UserService {
     private final Environment env;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
-    private final RestTemplate restTemplate;
+//    private final RestTemplate restTemplate;
     private final UserRepository userRepository;
+    private final OrderServiceClient orderServiceClient;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -67,12 +69,17 @@ public class UserServiceImpl implements UserService {
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
 
 //        List<ResponseOrder> orders = new ArrayList<>();
-        String orderUrl = String.format(env.getProperty("order-service.url"), userId);
-        ResponseEntity<List<ResponseOrder>> orderListResponse =
-                restTemplate.exchange(orderUrl, HttpMethod.GET, null,
-                        new ParameterizedTypeReference<List<ResponseOrder>>() {
-                });
-        List<ResponseOrder> orderList = orderListResponse.getBody();
+
+        /* Using as Rest Template */
+//        String orderUrl = String.format(env.getProperty("order-service.url"), userId);
+//        ResponseEntity<List<ResponseOrder>> orderListResponse =
+//                restTemplate.exchange(orderUrl, HttpMethod.GET, null,
+//                        new ParameterizedTypeReference<List<ResponseOrder>>() {
+//                });
+//        List<ResponseOrder> orderList = orderListResponse.getBody();
+
+        /* Using as Feign Client */
+        List<ResponseOrder> orderList = orderServiceClient.getOrders(userId);
         userDto.setOrders(orderList);
 
         return userDto;
