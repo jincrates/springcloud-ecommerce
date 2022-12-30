@@ -32,7 +32,7 @@ eureka:
 
 logging:
   level:
-    me.jincrates.userservice: debug
+    me.jincrates.userservice.client: DEBUG
 
 greeting:
   message: Welcome to the Spring Cloud E-Commerce.

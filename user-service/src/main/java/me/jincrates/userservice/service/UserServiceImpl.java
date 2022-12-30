@@ -1,6 +1,8 @@
 package me.jincrates.userservice.service;
 
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import me.jincrates.userservice.client.OrderServiceClient;
 import me.jincrates.userservice.controller.response.ResponseOrder;
 import me.jincrates.userservice.dto.UserDto;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -79,7 +82,14 @@ public class UserServiceImpl implements UserService {
 //        List<ResponseOrder> orderList = orderListResponse.getBody();
 
         /* Using as Feign Client */
-        List<ResponseOrder> orderList = orderServiceClient.getOrders(userId);
+        /* Feign exception handling */
+        List<ResponseOrder> orderList = null;
+        try {
+            orderList = orderServiceClient.getOrders(userId);
+
+        } catch (FeignException ex) {
+            log.error(ex.getMessage());
+        }
         userDto.setOrders(orderList);
 
         return userDto;
