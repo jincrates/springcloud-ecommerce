@@ -36,6 +36,9 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
 	implementation 'org.modelmapper:modelmapper:3.1.1'
+
+	//mariadb
+	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.6'
 }
 
 dependencyManagement {
