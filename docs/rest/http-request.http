@@ -105,4 +105,23 @@ Content-Type: application/json
 GET http://localhost:8083/connectors
 
 ### Kafka Connect 확인
-GET http://localhost:8083/my-source-connect/status
+GET http://localhost:8083/connectors/my-source-connect/status
+
+### Kafka Sink Connect 등록
+POST http://localhost:8083/connectors
+Content-Type: application/json
+
+{
+  "name" : "my-sink-connect",
+  "config" : {
+    "connector.class" : "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "connection.url":"jdbc:mysql://localhost:3306/msa-spring-cloud",
+    "connection.user":"micro",
+    "connection.password":"service",
+    "auto.create":"true",
+    "auto.evolve":"true",
+    "delete:enabled":"false",
+    "topics" : "my_topic_users",
+    "tasks.max" : "1"
+  }
+}
