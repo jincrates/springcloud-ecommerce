@@ -33,8 +33,8 @@ POST {{host}}/order-service/2d3dc035-8c75-4d6c-ab32-4625fdc1dfce/orders
 Content-Type: application/json
 
 {
-  "productId": "CATALOG-0004",
-  "qty": 4,
+  "productId": "CATALOG-0003",
+  "qty": 10,
   "unitPrice": 400
 }
 
