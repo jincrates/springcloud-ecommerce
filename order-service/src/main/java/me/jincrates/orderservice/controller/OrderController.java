@@ -5,6 +5,7 @@ import me.jincrates.orderservice.controller.request.RequestOrder;
 import me.jincrates.orderservice.controller.response.ResponseOrder;
 import me.jincrates.orderservice.dto.OrderDto;
 import me.jincrates.orderservice.jpa.OrderEntity;
+import me.jincrates.orderservice.messagequeue.KafkaProducer;
 import me.jincrates.orderservice.service.OrderService;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.env.Environment;
@@ -23,6 +24,7 @@ public class OrderController {
     private final Environment env;
     private final ModelMapper modelMapper;
     private final OrderService orderService;
+    private final KafkaProducer kafkaProducer;
 
     @GetMapping("/health")
     public String status() {
@@ -34,11 +36,15 @@ public class OrderController {
     @PostMapping("/{userId}/orders")
     public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") String userId,
                                                      @RequestBody RequestOrder request) {
+        /* JPA */
         OrderDto orderDto = modelMapper.map(request, OrderDto.class);
         orderDto.setUserId(userId);
         OrderDto createdOrder = orderService.createOrder(orderDto);
 
         ResponseOrder responseOrder = modelMapper.map(createdOrder, ResponseOrder.class);
+
+        /* send this order to the kafka */
+        kafkaProducer.send("example-catalog-topic", orderDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseOrder);
     }
