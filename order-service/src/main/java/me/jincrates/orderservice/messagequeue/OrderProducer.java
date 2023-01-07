@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.List;
 
+import static me.jincrates.orderservice.dto.KafkaOrderDto.createKafkaOrderDto;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -18,33 +20,9 @@ public class OrderProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    List<Field> fields = Arrays.asList(
-            new Field("string", true, "order_id"),
-            new Field("string", true, "user_id"),
-            new Field("string", true, "product_id"),
-            new Field("int32", true, "qty"),
-            new Field("int32", true, "unit_price"),
-            new Field("int32", true, "total_price")
-    );
-
-    Schema schema = Schema.builder()
-            .type("struct")
-            .fields(fields)
-            .optional(false)
-            .name("orders")
-            .build();
-
     public OrderDto send(String topic, OrderDto orderDto) {
-        Payload payload = Payload.builder()
-                .orderId(orderDto.getOrderId())
-                .userId(orderDto.getUserId())
-                .productId(orderDto.getProductId())
-                .qty(orderDto.getQty())
-                .unitPrice(orderDto.getUnitPrice())
-                .totalPrice(orderDto.getTotalPrice())
-                .build();
 
-        KafkaOrderDto kafkaOrderDto = new KafkaOrderDto(schema, payload);
+        KafkaOrderDto kafkaOrderDto = createKafkaOrderDto(orderDto);
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonInString = "";

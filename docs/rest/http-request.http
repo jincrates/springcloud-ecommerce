@@ -29,12 +29,12 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2N
 GET {{host}}/catalog-service/catalogs
 
 ### 주문 등록
-POST {{host}}/order-service/2d3dc035-8c75-4d6c-ab32-4625fdc1dfce/orders
+POST {{host}}/order-service/f01dc1b4-6d08-4351-9c08-97d86f2a3afa/orders
 Content-Type: application/json
 
 {
-  "productId": "CATALOG-0005",
-  "qty": 15,
+  "productId": "CATALOG-0006",
+  "qty": 16,
   "unitPrice": 400
 }
 
@@ -143,5 +143,4 @@ Content-Type: application/json
     "topics" : "orders",
     "tasks.max" : "1"
   }
-}
 }
