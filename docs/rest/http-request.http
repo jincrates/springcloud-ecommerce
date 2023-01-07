@@ -22,19 +22,19 @@ GET {{host}}/user-service/users
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzMwNDkwNDcsImV4cCI6MTY3MzEzNTQ0Nywic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.h05eGeLinoshUmEcbGIpgikeb2DaSqHReMvLLtOn1s6KSG7H3NpWHwgFnS4wcoV9o2YDaxr_EX9FD-U6mcD8qA
 
 ### 유저 상세 조회
-GET {{host}}/user-service/users/f01dc1b4-6d08-4351-9c08-97d86f2a3afa
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzMwNDkwNDcsImV4cCI6MTY3MzEzNTQ0Nywic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.h05eGeLinoshUmEcbGIpgikeb2DaSqHReMvLLtOn1s6KSG7H3NpWHwgFnS4wcoV9o2YDaxr_EX9FD-U6mcD8qA
+GET {{host}}/user-service/users/98fdc853-6a02-4098-bdc9-abbf60edd104
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJqaW5jcmF0ZXMiLCJpYXQiOjE2NzMwNTU5NDQsImV4cCI6MTY3MzE0MjM0NCwic3ViIjoiamluY3JhdGVzQGVtYWlsLmNvbSJ9.yOycufWq-wWrJtbCBY4GoUBPBDPHt-WUsqiA6iR7Zvm2X6Q_6Aq97epQ3N2t1HfkxeFvzQzgbVJBZtMISZrx2A
 
 ### 카탈로그 전체 조회
 GET {{host}}/catalog-service/catalogs
 
 ### 주문 등록
-POST {{host}}/order-service/f01dc1b4-6d08-4351-9c08-97d86f2a3afa/orders
+POST {{host}}/order-service/98fdc853-6a02-4098-bdc9-abbf60edd104/orders
 Content-Type: application/json
 
 {
-  "productId": "CATALOG-0006",
-  "qty": 16,
+  "productId": "CATALOG-0003",
+  "qty": 13,
   "unitPrice": 400
 }
 

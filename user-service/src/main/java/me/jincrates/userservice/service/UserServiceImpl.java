@@ -9,6 +9,8 @@ import me.jincrates.userservice.dto.UserDto;
 import me.jincrates.userservice.jpa.UserEntity;
 import me.jincrates.userservice.jpa.UserRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
@@ -35,6 +37,7 @@ public class UserServiceImpl implements UserService {
 //    private final RestTemplate restTemplate;
     private final UserRepository userRepository;
     private final OrderServiceClient orderServiceClient;
+    private final CircuitBreakerFactory circuitBreakerFactory;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -81,8 +84,15 @@ public class UserServiceImpl implements UserService {
 //                });
 //        List<ResponseOrder> orderList = orderListResponse.getBody();
 
-        /* Using as Feign Client */
-        List<ResponseOrder> orderList = orderServiceClient.getOrders(userId);
+        /* ErrorDecoder */
+//        List<ResponseOrder> orderList = orderServiceClient.getOrders(userId);
+
+        /* CircuitBreaker */
+        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitBreaker");
+        List<ResponseOrder> orderList = circuitBreaker.run(
+                () -> orderServiceClient.getOrders(userId),
+                throwable -> new ArrayList<>()
+        );
         userDto.setOrders(orderList);
 
         return userDto;
